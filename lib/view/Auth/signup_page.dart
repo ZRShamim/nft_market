@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+// import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../main.dart';
@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final googleSignIn = GoogleSignIn();
-    final fb = FacebookLogin();
+    // final fb = FacebookLogin();
 
     // Future facebookLogin() async {
     //   final res = await fb.logIn(permissions: [
@@ -73,8 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
         await FirebaseAuth.instance.signInWithCredential(credential);
       } catch (e) {
-        // print(e);
-
+        // print(e)
         Utils.showSnakBar(e.toString());
       }
 
