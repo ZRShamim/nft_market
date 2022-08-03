@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "896893829657",
+    "project_id": "nftmarket8822",
+    "storage_bucket": "nftmarket8822.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896893829657:android:dd25b413391b4e4f452088",
+        "android_client_info": {
+          "package_name": "com.zrs.nft_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896893829657-hl6msdlrcuj2m8gpdvgp422mg496087r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEbJ3Su5BDsa_hWqd8Be1mHit7ASVrv5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896893829657-hl6msdlrcuj2m8gpdvgp422mg496087r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
