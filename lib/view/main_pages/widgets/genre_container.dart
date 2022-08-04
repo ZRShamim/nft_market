@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../style/style.dart';
 
 class GenreContainer extends StatelessWidget {
   const GenreContainer({
@@ -34,7 +35,7 @@ class GenreContainer extends StatelessWidget {
           ),
           Text(
             text,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+            style: textStyle14,
           ),
         ],
       ),
