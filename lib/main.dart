@@ -2,12 +2,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nft_market/view/main_pages/home_page.dart';
 import 'package:nft_market/view/onboarding_pages/onboarding_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // import 'view/Auth/auth_page.dart';
 // import 'view/Auth/varify_email_page.dart';
+import 'view/root_page.dart';
 import 'view/utils.dart';
 
 void main() async {
@@ -21,15 +21,15 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [
     SystemUiOverlay.bottom,
   ]);
-  runApp(RootPage(
+  runApp(MainPage(
     showHome: showHome,
   ));
 }
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
-class RootPage extends StatelessWidget {
-  const RootPage({
+class MainPage extends StatelessWidget {
+  const MainPage({
     Key? key,
     required this.showHome,
   }) : super(key: key);
@@ -54,7 +54,7 @@ class RootPage extends StatelessWidget {
       ),
       home:
           // If not first time go HomePage else OnbordingPage will pop up
-          showHome ? const HomePage() : const OnboardingPage(),
+          showHome ? const RootPage() : const OnboardingPage(),
 
       // StreamBuilder(
       //   stream: FirebaseAuth.instance.authStateChanges(),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../main_pages/home_page.dart';
+import '../home_page/home_page.dart';
 import 'widget/landing_page_widget.dart';
 
 class OnboardingPage extends StatefulWidget {

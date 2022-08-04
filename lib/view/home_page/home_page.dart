@@ -260,7 +260,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             // Top buyers
