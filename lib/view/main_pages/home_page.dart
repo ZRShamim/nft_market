@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/genre_container.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
             // Search by genre section
             SingleChildScrollView(
@@ -80,7 +81,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            // group section
+            const GroupContainer()
+            // Hot Collection
+            // Top sellers
+            // Top buyers
           ],
         ),
       ),
@@ -88,42 +97,94 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class GenreContainer extends StatelessWidget {
-  const GenreContainer({
+class GroupContainer extends StatelessWidget {
+  const GroupContainer({
     Key? key,
-    required this.icon,
-    required this.text,
   }) : super(key: key);
-
-  final IconData icon;
-  final String text;
 
   @override
   Widget build(BuildContext context) {
+    double size = 260;
     return Container(
-      margin: const EdgeInsets.all(15),
-      width: 125,
-      height: 125,
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      width: size,
+      height: 240,
       decoration: BoxDecoration(
+        // color: Colors.black,
+        borderRadius: BorderRadius.circular(15),
         border: Border.all(
           color: Colors.black12,
         ),
-        borderRadius: BorderRadius.circular(100),
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(
-            icon,
-            color: const Color(0xff5446FF),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: size * 0.58,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Column(
+                  children: [
+                    Container(
+                      width: size * 0.32,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    Container(
+                      width: size * 0.32,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            text,
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: const [
+                  Text(
+                    'NFT Bored Bunny',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.verified,
+                    size: 18,
+                    color: Color(0xff4389FF),
+                  )
+                ],
+              ),
+              const Text('0.2 ETH'),
+            ],
+          )
         ],
       ),
     );
