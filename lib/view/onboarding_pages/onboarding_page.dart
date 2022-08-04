@@ -4,14 +4,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../main_pages/home_page.dart';
 import 'widget/landing_page_widget.dart';
 
-class OnboardinPage extends StatefulWidget {
-  const OnboardinPage({Key? key}) : super(key: key);
+class OnboardingPage extends StatefulWidget {
+  const OnboardingPage({Key? key}) : super(key: key);
 
   @override
-  State<OnboardinPage> createState() => _OnboardinPageState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardinPageState extends State<OnboardinPage> {
+class _OnboardingPageState extends State<OnboardingPage> {
   final pageViewController = PageController();
   bool isLastPage = false;
 

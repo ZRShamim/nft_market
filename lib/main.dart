@@ -14,6 +14,7 @@ void main() async {
   await Firebase.initializeApp();
 
   final prefs = await SharedPreferences.getInstance();
+  // checking if the user enter the app for first time
   final showHome = prefs.getBool('showHome') ?? false;
   runApp(RootPage(
     showHome: showHome,
@@ -39,7 +40,9 @@ class RootPage extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: showHome ? const HomePage() : const OnboardinPage(),
+      home:
+          // If not first time go HomePage else OnbordingPage will pop up
+          showHome ? const HomePage() : const OnboardingPage(),
 
       // StreamBuilder(
       //   stream: FirebaseAuth.instance.authStateChanges(),
