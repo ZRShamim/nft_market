@@ -8,6 +8,7 @@ const Icon verifiedIcon = Icon(
 
 const TextStyle textStyle14 = TextStyle(
   fontSize: 14,
+  color: Colors.black,
   fontWeight: FontWeight.w700,
 );
 

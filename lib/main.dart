@@ -1,6 +1,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:nft_market/view/main_pages/home_page.dart';
 import 'package:nft_market/view/onboarding_pages/onboarding_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +17,10 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
   // checking if the user enter the app for first time
   final showHome = prefs.getBool('showHome') ?? false;
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [
+    SystemUiOverlay.bottom,
+  ]);
   runApp(RootPage(
     showHome: showHome,
   ));
@@ -35,10 +40,17 @@ class RootPage extends StatelessWidget {
     return MaterialApp(
       scaffoldMessengerKey: Utils.messengerKey,
       navigatorKey: navigatorKey,
+
       debugShowCheckedModeBanner: false,
       title: 'NFT Bazar',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'PlusJakartaSans',
+        appBarTheme: const AppBarTheme(
+          toolbarHeight: 90,
+          color: Colors.transparent,
+          elevation: 0,
+        ),
       ),
       home:
           // If not first time go HomePage else OnbordingPage will pop up

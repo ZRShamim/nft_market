@@ -12,11 +12,47 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       // backgroundColor: const Color(0xffe7ecef),
-      body: SafeArea(
+      appBar: AppBar(
+        title: Container(
+          width: 160,
+          height: 50,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: const Color(0xffEEECFF),
+              width: 2,
+            ),
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: const Center(
+            child: Text(
+              'Connect Wallet',
+              style: textStyle14,
+            ),
+          ),
+        ),
+        actions: const [
+          Icon(
+            Icons.search,
+            size: 28,
+            color: Colors.black54,
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Icon(
+            Icons.notifications_outlined,
+            size: 28,
+            color: Colors.black54,
+          ),
+          SizedBox(
+            width: 10,
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomAppBar(),
             const SizedBox(
               height: 10,
             ),
@@ -209,62 +245,10 @@ class HomePage extends StatelessWidget {
               ),
             ),
             // Top sellers
+
             // Top buyers
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(15),
-      // App bar
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            width: 160,
-            height: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color(0xffEEECFF),
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: const Center(
-              child: Text(
-                'Connect Wallet',
-                style: textStyle14,
-              ),
-            ),
-          ),
-          Row(
-            children: const [
-              Icon(
-                Icons.search,
-                size: 28,
-                color: Colors.black54,
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              Icon(
-                Icons.notifications_outlined,
-                size: 28,
-                color: Colors.black54,
-              )
-            ],
-          ),
-        ],
       ),
     );
   }
