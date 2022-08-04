@@ -80,7 +80,11 @@ class HomePage extends StatelessWidget {
               height: 10,
             ),
             // group section
-            const GroupContainer(),
+            const CustomContainer(
+              width: 260,
+              height: 240,
+              child: Groupedchild(size: 260),
+            ),
             const SizedBox(
               height: 25,
             ),
@@ -216,26 +220,9 @@ class HomePage extends StatelessWidget {
                             const SizedBox(
                               width: 20,
                             ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Row(
-                                children: const [
-                                  Text(
-                                    'Details',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w700),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 14,
-                                  ),
-                                ],
-                              ),
-                            )
+                            const TextButtonIconWidget(
+                              text: 'Details',
+                            ),
                           ],
                         ),
                       )
@@ -244,9 +231,64 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
             // Top sellers
-
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Top Sellers',
+                    style: textStyle18,
+                  ),
+                  TextButtonIconWidget(
+                    text: 'See All',
+                  ),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  UserCard(),
+                  UserCard(),
+                  UserCard(),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             // Top buyers
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text(
+                    'Top Sellers',
+                    style: textStyle18,
+                  ),
+                  TextButtonIconWidget(
+                    text: 'See All',
+                  ),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  UserCard(),
+                  UserCard(),
+                  UserCard(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -254,19 +296,88 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class GroupContainer extends StatelessWidget {
-  const GroupContainer({
+class UserCard extends StatelessWidget {
+  const UserCard({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double size = 260;
+    return CustomContainer(
+      width: 125,
+      height: 160,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          CircleAvatar(),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Shamim',
+            style: textStyle14,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            '2.88 ETH',
+            style: textStyleGreen,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class TextButtonIconWidget extends StatelessWidget {
+  const TextButtonIconWidget({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () {},
+      child: Row(
+        children: [
+          Text(
+            text,
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+          const Icon(
+            Icons.arrow_forward_ios,
+            size: 14,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({
+    Key? key,
+    required this.width,
+    required this.height,
+    required this.child,
+  }) : super(key: key);
+  final double width;
+  final double height;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 15),
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      width: size,
-      height: 240,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         // color: Colors.black,
         borderRadius: BorderRadius.circular(15),
@@ -274,96 +385,110 @@ class GroupContainer extends StatelessWidget {
           color: Colors.black12,
         ),
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5),
-            child: Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: size * 0.58,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(10),
+      child: child,
+    );
+  }
+}
+
+class Groupedchild extends StatelessWidget {
+  const Groupedchild({
+    Key? key,
+    required this.size,
+  }) : super(key: key);
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 5),
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: size * 0.58,
+                height: 140,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Column(
+                children: [
+                  Container(
+                    width: size * 0.32,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: size * 0.32,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                      width: size * 0.32,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: const [
-                    Text(
-                      'NFT Bored Bunny',
-                      style: textStyle14,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    verifiedIcon,
-                  ],
-                ),
-                const Text(
-                  '0.2 ETH',
-                  style: textStyleGreen,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('9.2k pieces'),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xff5446FF),
-                    elevation: 0,
+                  const SizedBox(
+                    height: 5,
                   ),
-                  child: const Text('Buy Now'),
+                  Container(
+                    width: size * 0.32,
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: const [
+                  Text(
+                    'NFT Bored Bunny',
+                    style: textStyle14,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  verifiedIcon,
+                ],
+              ),
+              const Text(
+                '0.2 ETH',
+                style: textStyleGreen,
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text('9.2k pieces'),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  primary: const Color(0xff5446FF),
+                  elevation: 0,
                 ),
-              ],
-            ),
-          )
-        ],
-      ),
+                child: const Text('Buy Now'),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
