@@ -2,8 +2,11 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:nft_market/view/main_pages/home_page.dart';
+import 'package:nft_market/view/home_page/home_page.dart';
+
 import 'package:nft_market/view/utils.dart';
+
+import '../../main.dart';
 
 class VerifyEmailPage extends StatefulWidget {
   const VerifyEmailPage({Key? key}) : super(key: key);
