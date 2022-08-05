@@ -47,7 +47,7 @@ class MainPage extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'PlusJakartaSans',
         appBarTheme: const AppBarTheme(
-          toolbarHeight: 90,
+          // toolbarHeight: 90,
           color: Colors.transparent,
           elevation: 0,
         ),

@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:nft_market/view/style/image_path.dart';
 
 import '../style/style.dart';
 import 'widgets/genre_container.dart';
@@ -29,11 +31,15 @@ class _HomePageState extends State<HomePage>
   }
 
   @override
+  void dispose() {
+    _con!.dispose();
+    _textEditingController!.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // final user = FirebaseAuth.instance.currentUser!;
-    // bool isSearchExpanded = false;
     return Scaffold(
-      // backgroundColor: const Color(0xffe7ecef),
       appBar: AppBar(
         title: toggle == 0
             ? Container(
