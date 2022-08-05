@@ -22,6 +22,18 @@ void main() async {
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [
   //   SystemUiOverlay.bottom,
   // ]);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      // statusBarColor: Colors.grey[50],
+      // statusBarIconBrightness: Brightness.light,
+      // statusBarBrightness: Brightness.dark,
+      // systemStatusBarContrastEnforced: ,
+
+      systemNavigationBarColor: Colors.grey[50],
+      systemNavigationBarIconBrightness: Brightness.dark,
+      // systemNavigationBarContrastEnforced: ,
+    ),
+  );
   runApp(MainPage(
     showHome: showHome,
   ));
@@ -42,6 +54,7 @@ class MainPage extends StatelessWidget {
       scaffoldMessengerKey: Utils.messengerKey,
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
+
       title: 'NFT Bazar',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -50,6 +63,11 @@ class MainPage extends StatelessWidget {
           // toolbarHeight: 90,
           color: Colors.transparent,
           elevation: 0,
+          // systemOverlayStyle: SystemUiOverlayStyle(
+          //   statusBarColor: Colors.white,
+          //   statusBarIconBrightness: Brightness.dark,
+          //   statusBarBrightness: Brightness.light,
+          // ),
         ),
       ),
       home:
