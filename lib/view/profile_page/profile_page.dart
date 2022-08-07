@@ -120,12 +120,96 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                InfoColumn(
+                  titleText: 'Items',
+                  subtitleText: '10K',
+                ),
+                InfoColumn(
+                  titleText: 'Owners',
+                  subtitleText: '8.5K',
+                ),
+                InfoColumn(
+                  titleText: 'Floor Price',
+                  subtitleText: '10.5K',
+                ),
+                InfoColumn(
+                  titleText: 'Traded',
+                  subtitleText: '254',
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: double.infinity,
+              height: 50,
+              child: ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    const Color(0xff5446FF),
+                  ),
+                  elevation: MaterialStateProperty.all(0),
+                  shape: MaterialStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Text(
+                  'Follow',
+                  style: TextStyle(
+                    fontSize: textStyle14.fontSize,
+                    fontWeight: textStyle14.fontWeight,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class InfoColumn extends StatelessWidget {
+  const InfoColumn({
+    Key? key,
+    required this.titleText,
+    required this.subtitleText,
+  }) : super(key: key);
+  final String titleText;
+  final String subtitleText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          titleText,
+          style: textStyle14,
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          subtitleText,
+          style: textStyle12,
+        ),
+      ],
     );
   }
 }

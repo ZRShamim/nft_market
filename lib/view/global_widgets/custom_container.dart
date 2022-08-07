@@ -16,12 +16,9 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // margin: const EdgeInsets.symmetric(horizontal: 15),
-      // padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       width: width,
       height: height,
       decoration: BoxDecoration(
-        // color: Colors.black,
         borderRadius: BorderRadius.circular(radius),
         border: Border.all(
           color: Colors.black12,

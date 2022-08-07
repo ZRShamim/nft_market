@@ -17,6 +17,11 @@ const TextStyle textStyle18 = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+const TextStyle textStyle12 = TextStyle(
+  fontSize: 12,
+  fontWeight: FontWeight.w500,
+);
+
 const TextStyle textStyleGreen = TextStyle(
   color: Color(
     0xff25D76C,
