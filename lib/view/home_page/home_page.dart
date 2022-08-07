@@ -41,20 +41,34 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       appBar: AppBar(
         title: toggle == 0
-            ? Container(
-                width: 160,
-                height: 50,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: const Color(0xffEEECFF),
-                    width: 2,
+            ? GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
+                    ),
+                    context: context,
+                    builder: (context) => const ModalBottomSheet(),
+                  );
+                },
+                child: Container(
+                  width: 160,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: const Color(0xffEEECFF),
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(50),
                   ),
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Connect Wallet',
-                    style: textStyle14,
+                  child: const Center(
+                    child: Text(
+                      'Connect Wallet',
+                      style: textStyle14,
+                    ),
                   ),
                 ),
               )
@@ -188,7 +202,7 @@ class _HomePageState extends State<HomePage>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             // Search by genre section
             SingleChildScrollView(
@@ -274,16 +288,47 @@ class _HomePageState extends State<HomePage>
               height: 30,
             ),
             // group section
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              child: CustomContainer(
-                width: 260,
-                height: 250,
-                radius: 15,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Groupedchild(size: 260),
-                ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: CustomContainer(
+                      width: 260,
+                      height: 250,
+                      radius: 15,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Groupedchild(size: 260),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: CustomContainer(
+                      width: 260,
+                      height: 250,
+                      radius: 15,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Groupedchild(size: 260),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: CustomContainer(
+                      width: 260,
+                      height: 250,
+                      radius: 15,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Groupedchild(size: 260),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(
@@ -300,138 +345,7 @@ class _HomePageState extends State<HomePage>
             const SizedBox(
               height: 15,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              width: MediaQuery.of(context).size.width - 40,
-              height: 150,
-              child: Row(
-                children: [
-                  Container(
-                    width: 125,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.black,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: const [
-                          Text('NFT Bored Bunny'),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          verifiedIcon,
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      const Text(
-                        'Floor price:',
-                        style: TextStyle(
-                          color: Color(0xffA9ADB7),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 6,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width - 200,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              '4.2 ETH',
-                              style: textStyleGreen,
-                            ),
-                            Container(
-                              width: 85,
-                              height: 25,
-                              decoration: BoxDecoration(
-                                color: const Color(0xffF6F6F6),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Icon(
-                                    Icons.timer,
-                                    color: Color(0xffA9ADB7),
-                                    size: 18,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    '20:15:23',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xffA9ADB7),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width - 200,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const CircleAvatar(),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
-                                  'Alex. J',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color(
-                                      0xff151516,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                Text(
-                                  '@Alex. J',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xffA9ADB7),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            const TextButtonIconWidget(
-                              text: 'Details',
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
+            const HotCollectionWidget(),
             const SizedBox(
               height: 20,
             ),
@@ -505,8 +419,258 @@ class _HomePageState extends State<HomePage>
                 ],
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ModalBottomSheet extends StatelessWidget {
+  const ModalBottomSheet({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * .45,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: const [
+                      Icon(
+                        Icons.wallet,
+                        color: Color(0xff5446FF),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'Connect Wallet',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Icon(
+                    Icons.close,
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  WalletTileWidget(
+                    title: 'Meta Task',
+                    onTap: () {},
+                  ),
+                  WalletTileWidget(
+                    title: 'Meta Task',
+                    onTap: () {},
+                  ),
+                  WalletTileWidget(
+                    title: 'Meta Task',
+                    onTap: () {},
+                  ),
+                  WalletTileWidget(
+                    title: 'Meta Task',
+                    onTap: () {},
+                  ),
+                  WalletTileWidget(
+                    title: 'Meta Task',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class WalletTileWidget extends StatelessWidget {
+  const WalletTileWidget({
+    Key? key,
+    required this.title,
+    this.onTap,
+  }) : super(key: key);
+
+  final String title;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const CircleAvatar(),
+      title: const Text('Meta Task'),
+      trailing: TextButton(
+        onPressed: onTap,
+        child: const Text(
+          'Connect',
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+            color: Color(0xff5446FF),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class HotCollectionWidget extends StatelessWidget {
+  const HotCollectionWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+      width: MediaQuery.of(context).size.width - 40,
+      height: 150,
+      child: Row(
+        children: [
+          Container(
+            width: 125,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: const [
+                  Text('NFT Bored Bunny'),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  verifiedIcon,
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                'Floor price:',
+                style: TextStyle(
+                  color: Color(0xffA9ADB7),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(
+                height: 6,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 200,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      '4.2 ETH',
+                      style: textStyleGreen,
+                    ),
+                    Container(
+                      width: 85,
+                      height: 25,
+                      decoration: BoxDecoration(
+                        color: const Color(0xffF6F6F6),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.timer,
+                            color: Color(0xffA9ADB7),
+                            size: 18,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            '20:15:23',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xffA9ADB7),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 200,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const CircleAvatar(),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Alex. J',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            color: Color(
+                              0xff151516,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 3,
+                        ),
+                        Text(
+                          '@Alex. J',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffA9ADB7),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    const TextButtonIconWidget(
+                      text: 'Details',
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }

@@ -16,6 +16,7 @@ class SeeAllPage extends StatelessWidget {
           title,
           style: textStyle14,
         ),
+        toolbarHeight: 50,
         centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black),
       ),
