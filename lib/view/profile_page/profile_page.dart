@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'package:nft_market/view/global_widgets/custom_container.dart';
 import 'package:nft_market/view/style/style.dart';
-
-import '../style/image_path.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -49,6 +47,77 @@ class ProfilePage extends StatelessWidget {
                           fontSize: 12,
                           fontWeight: FontWeight.w500,
                           color: Color(0xffA9ADB7)),
+                    ),
+                  ],
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: const [
+                    Text(
+                      '0xc4c16a645...b21a',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xff5446FF),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Icon(
+                      Icons.copy,
+                      size: 18,
+                      color: Color(0xff5446FF),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: CustomContainer(
+                        width: 40,
+                        height: 40,
+                        radius: 25,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            'assets/logo/facebook.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: CustomContainer(
+                        width: 40,
+                        height: 40,
+                        radius: 20,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Image.asset(
+                            'assets/logo/twitter.png',
+                          ),
+                        ),
+                      ),
+                    ),
+                    CustomContainer(
+                      width: 40,
+                      height: 40,
+                      radius: 20,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.asset(
+                          'assets/logo/instagram.png',
+                        ),
+                      ),
                     ),
                   ],
                 )

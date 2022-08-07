@@ -1,11 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:nft_market/view/style/image_path.dart';
 
 import '../style/style.dart';
-import 'widgets/genre_container.dart';
+import '../global_widgets/custom_container.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -189,36 +187,103 @@ class _HomePageState extends State<HomePage>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
             // Search by genre section
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: const [
-                  GenreContainer(
-                    text: 'Music',
-                    icon: Icons.music_note,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: CustomContainer(
+                      height: 125,
+                      width: 125,
+                      radius: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.music_note,
+                            color: Color(0xff5446FF),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'Music',
+                            style: textStyle14,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  GenreContainer(
-                    text: 'Design',
-                    icon: Icons.design_services_outlined,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: CustomContainer(
+                      height: 125,
+                      width: 125,
+                      radius: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.design_services,
+                            color: Color(0xff5446FF),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'Design',
+                            style: textStyle14,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  GenreContainer(
-                    text: 'Sport',
-                    icon: Icons.sports_baseball_outlined,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: CustomContainer(
+                      height: 125,
+                      width: 125,
+                      radius: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.sports,
+                            color: Color(0xff5446FF),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'Sport',
+                            style: textStyle14,
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 30,
             ),
             // group section
-            const CustomContainer(
-              width: 260,
-              height: 240,
-              child: Groupedchild(size: 260),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: CustomContainer(
+                width: 260,
+                height: 250,
+                radius: 15,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Groupedchild(size: 260),
+                ),
+              ),
             ),
             const SizedBox(
               height: 25,
@@ -438,28 +503,32 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomContainer(
-      width: 125,
-      height: 160,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          CircleAvatar(),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            'Shamim',
-            style: textStyle14,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            '2.88 ETH',
-            style: textStyleGreen,
-          )
-        ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: CustomContainer(
+        width: 125,
+        height: 160,
+        radius: 15,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            CircleAvatar(),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Shamim',
+              style: textStyle14,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              '2.88 ETH',
+              style: textStyleGreen,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -491,36 +560,6 @@ class TextButtonIconWidget extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class CustomContainer extends StatelessWidget {
-  const CustomContainer({
-    Key? key,
-    required this.width,
-    required this.height,
-    required this.child,
-  }) : super(key: key);
-  final double width;
-  final double height;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15),
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-        // color: Colors.black,
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: Colors.black12,
-        ),
-      ),
-      child: child,
     );
   }
 }
