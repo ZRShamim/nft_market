@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:nft_market/view/home_page/see_all_page/see_all_page.dart';
 
 import '../style/style.dart';
 import '../global_widgets/custom_container.dart';
@@ -439,14 +440,22 @@ class _HomePageState extends State<HomePage>
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    'Top Sellers',
+                children: [
+                  const Text(
+                    'Top Buyers',
                     style: textStyle18,
                   ),
                   TextButtonIconWidget(
                     text: 'See All',
-                  ),
+                    route: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SeeAllPage(
+                          title: 'Buyers',
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -468,14 +477,21 @@ class _HomePageState extends State<HomePage>
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Top Sellers',
                     style: textStyle18,
                   ),
                   TextButtonIconWidget(
-                    text: 'See All',
-                  ),
+                      text: 'See All',
+                      route: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SeeAllPage(
+                                title: 'Sellers',
+                              ),
+                            ),
+                          )),
                 ],
               ),
             ),
@@ -538,13 +554,15 @@ class TextButtonIconWidget extends StatelessWidget {
   const TextButtonIconWidget({
     Key? key,
     required this.text,
+    this.route,
   }) : super(key: key);
   final String text;
+  final VoidCallback? route;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: route,
       child: Row(
         children: [
           Text(

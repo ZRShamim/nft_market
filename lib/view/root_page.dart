@@ -13,7 +13,7 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int index = 3;
+  int index = 0;
   var screens = [
     const HomePage(),
     const ExplorePage(),
