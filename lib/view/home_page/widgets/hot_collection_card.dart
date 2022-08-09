@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../style/image_path.dart';
 import '../../style/style.dart';
 import '../collection_details_page/collection_details_page.dart';
 import 'custom_text_btn.dart';
@@ -7,7 +8,9 @@ import 'custom_text_btn.dart';
 class HotCollectionCard extends StatelessWidget {
   const HotCollectionCard({
     Key? key,
+    required this.userImg,
   }) : super(key: key);
+  final String userImg;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +25,10 @@ class HotCollectionCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: Colors.black,
+              image: const DecorationImage(
+                image: AssetImage(nft_3),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(
@@ -102,7 +109,9 @@ class HotCollectionCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const CircleAvatar(),
+                    CircleAvatar(
+                      backgroundImage: AssetImage(userImg),
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [

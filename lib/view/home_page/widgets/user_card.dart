@@ -6,7 +6,10 @@ import '../../style/style.dart';
 class UserCard extends StatelessWidget {
   const UserCard({
     Key? key,
+    required this.userImg,
   }) : super(key: key);
+
+  final String userImg;
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +21,19 @@ class UserCard extends StatelessWidget {
         radius: 15,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CircleAvatar(),
-            SizedBox(
+          children: [
+            CircleAvatar(backgroundImage: AssetImage(userImg)),
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'Shamim',
               style: textStyle14,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               '2.88 ETH',
               style: textStyleGreen,
             )

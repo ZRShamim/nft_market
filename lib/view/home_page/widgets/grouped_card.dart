@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nft_market/view/style/image_path.dart';
 
 import '../../style/style.dart';
 
@@ -25,6 +26,10 @@ class GroupedCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(10),
+                  image: const DecorationImage(
+                    image: AssetImage(nft_1),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -38,6 +43,10 @@ class GroupedCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(
+                        image: AssetImage(nft_7),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -49,6 +58,10 @@ class GroupedCard extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(
+                        image: AssetImage(nft_4),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ],

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:nft_market/view/home_page/see_all_page/see_all_page.dart';
+import 'package:nft_market/view/style/image_path.dart';
 
 import '../style/style.dart';
 import '../global_widgets/custom_container.dart';
@@ -350,7 +351,9 @@ class _HomePageState extends State<HomePage>
             const SizedBox(
               height: 15,
             ),
-            const HotCollectionCard(),
+            const HotCollectionCard(
+              userImg: user_3,
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -382,9 +385,15 @@ class _HomePageState extends State<HomePage>
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: const [
-                  UserCard(),
-                  UserCard(),
-                  UserCard(),
+                  UserCard(
+                    userImg: user_1,
+                  ),
+                  UserCard(
+                    userImg: user_2,
+                  ),
+                  UserCard(
+                    userImg: user_4,
+                  ),
                 ],
               ),
             ),
@@ -418,9 +427,15 @@ class _HomePageState extends State<HomePage>
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: const [
-                  UserCard(),
-                  UserCard(),
-                  UserCard(),
+                  UserCard(
+                    userImg: user_2,
+                  ),
+                  UserCard(
+                    userImg: user_3,
+                  ),
+                  UserCard(
+                    userImg: user_1,
+                  ),
                 ],
               ),
             ),
