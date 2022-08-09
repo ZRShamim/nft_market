@@ -5,6 +5,11 @@ import 'package:nft_market/view/home_page/see_all_page/see_all_page.dart';
 
 import '../style/style.dart';
 import '../global_widgets/custom_container.dart';
+import 'widgets/bottom_sheet.dart';
+import 'widgets/custom_text_btn.dart';
+import 'widgets/grouped_card.dart';
+import 'widgets/hot_collection_card.dart';
+import 'widgets/user_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -300,7 +305,7 @@ class _HomePageState extends State<HomePage>
                       radius: 15,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Groupedchild(size: 260),
+                        child: GroupedCard(size: 260),
                       ),
                     ),
                   ),
@@ -312,7 +317,7 @@ class _HomePageState extends State<HomePage>
                       radius: 15,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Groupedchild(size: 260),
+                        child: GroupedCard(size: 260),
                       ),
                     ),
                   ),
@@ -324,7 +329,7 @@ class _HomePageState extends State<HomePage>
                       radius: 15,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: Groupedchild(size: 260),
+                        child: GroupedCard(size: 260),
                       ),
                     ),
                   ),
@@ -345,7 +350,7 @@ class _HomePageState extends State<HomePage>
             const SizedBox(
               height: 15,
             ),
-            const HotCollectionWidget(),
+            const HotCollectionCard(),
             const SizedBox(
               height: 20,
             ),
@@ -359,9 +364,9 @@ class _HomePageState extends State<HomePage>
                     'Top Buyers',
                     style: textStyle18,
                   ),
-                  TextButtonIconWidget(
+                  CustomTextButton(
                     text: 'See All',
-                    route: () => Navigator.push(
+                    onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const SeeAllPage(
@@ -396,9 +401,9 @@ class _HomePageState extends State<HomePage>
                     'Top Sellers',
                     style: textStyle18,
                   ),
-                  TextButtonIconWidget(
+                  CustomTextButton(
                       text: 'See All',
-                      route: () => Navigator.push(
+                      onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) => const SeeAllPage(
@@ -425,426 +430,6 @@ class _HomePageState extends State<HomePage>
           ],
         ),
       ),
-    );
-  }
-}
-
-class ModalBottomSheet extends StatelessWidget {
-  const ModalBottomSheet({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .45,
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: const [
-                      Icon(
-                        Icons.wallet,
-                        color: Color(0xff5446FF),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Connect Wallet',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Icon(
-                    Icons.close,
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  WalletTileWidget(
-                    title: 'Meta Task',
-                    onTap: () {},
-                  ),
-                  WalletTileWidget(
-                    title: 'Meta Task',
-                    onTap: () {},
-                  ),
-                  WalletTileWidget(
-                    title: 'Meta Task',
-                    onTap: () {},
-                  ),
-                  WalletTileWidget(
-                    title: 'Meta Task',
-                    onTap: () {},
-                  ),
-                  WalletTileWidget(
-                    title: 'Meta Task',
-                    onTap: () {},
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class WalletTileWidget extends StatelessWidget {
-  const WalletTileWidget({
-    Key? key,
-    required this.title,
-    this.onTap,
-  }) : super(key: key);
-
-  final String title;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: const CircleAvatar(),
-      title: const Text('Meta Task'),
-      trailing: TextButton(
-        onPressed: onTap,
-        child: const Text(
-          'Connect',
-          style: TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w700,
-            color: Color(0xff5446FF),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class HotCollectionWidget extends StatelessWidget {
-  const HotCollectionWidget({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 15),
-      width: MediaQuery.of(context).size.width - 40,
-      height: 150,
-      child: Row(
-        children: [
-          Container(
-            width: 125,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              color: Colors.black,
-            ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: const [
-                  Text('NFT Bored Bunny'),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  verifiedIcon,
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Floor price:',
-                style: TextStyle(
-                  color: Color(0xffA9ADB7),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 200,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      '4.2 ETH',
-                      style: textStyleGreen,
-                    ),
-                    Container(
-                      width: 85,
-                      height: 25,
-                      decoration: BoxDecoration(
-                        color: const Color(0xffF6F6F6),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
-                            Icons.timer,
-                            color: Color(0xffA9ADB7),
-                            size: 18,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            '20:15:23',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xffA9ADB7),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 25,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 200,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const CircleAvatar(),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Alex. J',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                            color: Color(
-                              0xff151516,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          '@Alex. J',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xffA9ADB7),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    const TextButtonIconWidget(
-                      text: 'Details',
-                    ),
-                  ],
-                ),
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class UserCard extends StatelessWidget {
-  const UserCard({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: CustomContainer(
-        width: 125,
-        height: 160,
-        radius: 15,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            CircleAvatar(),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              'Shamim',
-              style: textStyle14,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              '2.88 ETH',
-              style: textStyleGreen,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class TextButtonIconWidget extends StatelessWidget {
-  const TextButtonIconWidget({
-    Key? key,
-    required this.text,
-    this.route,
-  }) : super(key: key);
-  final String text;
-  final VoidCallback? route;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: route,
-      child: Row(
-        children: [
-          Text(
-            text,
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700),
-          ),
-          const SizedBox(
-            width: 5,
-          ),
-          const Icon(
-            Icons.arrow_forward_ios,
-            size: 14,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Groupedchild extends StatelessWidget {
-  const Groupedchild({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: Row(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: size * 0.58,
-                height: 140,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: size * 0.32,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    width: size * 0.32,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: const [
-                  Text(
-                    'NFT Bored Bunny',
-                    style: textStyle14,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  verifiedIcon,
-                ],
-              ),
-              const Text(
-                '0.2 ETH',
-                style: textStyleGreen,
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text('9.2k pieces'),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  primary: const Color(0xff5446FF),
-                  elevation: 0,
-                ),
-                child: const Text('Buy Now'),
-              ),
-            ],
-          ),
-        )
-      ],
     );
   }
 }
