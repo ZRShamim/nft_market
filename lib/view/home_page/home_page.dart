@@ -374,6 +374,7 @@ class _HomePageState extends State<HomePage>
                       MaterialPageRoute(
                         builder: (context) => const SeeAllPage(
                           title: 'Buyers',
+                          userImg: user_1,
                         ),
                       ),
                     ),
@@ -411,15 +412,17 @@ class _HomePageState extends State<HomePage>
                     style: textStyle18,
                   ),
                   CustomTextButton(
-                      text: 'See All',
-                      onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SeeAllPage(
-                                title: 'Sellers',
-                              ),
-                            ),
-                          )),
+                    text: 'See All',
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SeeAllPage(
+                          title: 'Sellers',
+                          userImg: user_3,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

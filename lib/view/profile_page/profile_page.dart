@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nft_market/view/global_widgets/custom_container.dart';
+import 'package:nft_market/view/style/image_path.dart';
 import 'package:nft_market/view/style/style.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -27,6 +28,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 const CircleAvatar(
                   radius: 30,
+                  backgroundImage: AssetImage(user_3),
                 ),
                 const SizedBox(
                   width: 15,

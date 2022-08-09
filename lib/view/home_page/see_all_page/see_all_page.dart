@@ -4,9 +4,14 @@ import 'package:nft_market/view/global_widgets/custom_container.dart';
 import '../../style/style.dart';
 
 class SeeAllPage extends StatelessWidget {
-  const SeeAllPage({Key? key, required this.title}) : super(key: key);
+  const SeeAllPage({
+    Key? key,
+    required this.title,
+    required this.userImg,
+  }) : super(key: key);
 
   final String title;
+  final String userImg;
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +40,21 @@ class SeeAllPage extends StatelessWidget {
           radius: 15,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              CircleAvatar(),
-              SizedBox(
+            children: [
+              CircleAvatar(
+                backgroundImage: AssetImage(userImg),
+              ),
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Shamim',
                 style: textStyle14,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 '2.88 ETH',
                 style: textStyleGreen,
               )
